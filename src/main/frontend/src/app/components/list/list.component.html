@@ -1,0 +1,26 @@
+<div class="container">
+  <div class="row">
+    <div class="col-sm-12">
+      <button routerLink="/create">Create campaign</button>
+    </div>
+  </div>
+
+  <div class="panel panel-primary">
+    <div class="panel-heading">
+      <h1 class="panel-title">Campaigns</h1>
+    </div>
+    <div class="panel-body">
+      <div class="table-responsive">
+        <table class="table table-hover">
+          <tr *ngFor="let campaign of campaigns">
+            <td >{{ campaign.name }}</td>
+            <td><button routerLink="/show/{{campaign.id}}" class="btn btn-primary">Show</button></td>
+            <td><button routerLink="/edit/{{campaign.id}}" class="btn btn-info">Edit</button></td>
+            <td><button (click)="deleteCampaignById(campaign.id)" class="btn btn-danger">Delete</button></td>
+          </tr>
+        </table>
+      </div>
+    </div>
+  </div>
+</div>
+

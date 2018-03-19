@@ -1,0 +1,29 @@
+<div class="container">
+  <div class="row" *ngIf="campaign" style="padding-top: 20px">
+    <div class="col-sm-3">
+      <h2>Campaign</h2>
+      <p>Campaign id: <strong>{{campaign.id}}</strong></p>
+      <p>Campaign name: <strong>{{campaign.name}}</strong></p>
+      <p>Campaign minAmount: <strong>{{campaign.minAmount}}</strong></p>
+      <p>Campaign status: <strong>{{campaign.status}}</strong></p>
+      <p>Campaign radius: <strong>{{campaign.radius}}</strong></p>
+      <p>Campaign fund: <strong>{{campaign.fund}}</strong></p>
+    </div>
+    <div class="col-sm-3" *ngIf="campaign.town">
+      <h2>Campaign Town</h2>
+      <p>Town id: <strong>{{campaign.town.id}}</strong></p>
+      <p>Town name: <strong>{{campaign.town.name}}</strong></p>
+    </div>
+    <div class="col-sm-3" *ngIf="campaign.keyWords">
+      <h2>Campaign KeyWords</h2>
+      <div class="col-sm-12" *ngFor="let keyWord of campaign.keyWords">
+        <p>KeyWord id: <strong>{{keyWord.id}}</strong></p>
+        <p>KeyWord name: <strong>{{keyWord.name}}</strong></p>
+      </div>
+    </div>
+    <div class="col-sm-3">
+      <button (click)="deleteCampaignById(campaign.id)" class="btn btn-danger">Delete</button>
+      <button routerLink="/edit/{{campaign.id}}" class="btn btn-info">Edit</button>
+    </div>
+  </div>
+</div>
